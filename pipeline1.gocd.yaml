@@ -22,10 +22,10 @@ pipelines:
                - jdk11
               artifacts:
                - build:
-                   source:
+                   source: ./sample.txt
                    destination: output
                - test:
-                   source:
+                   source: ./sample.txt
                    destination: test-output/
               tabs:
                 report: test-output/sample.txt
@@ -34,4 +34,4 @@ pipelines:
                    command: bash
                    arguments:
                     - -c
-                    - echo $Name
+                    - echo $Name > sample.txt
