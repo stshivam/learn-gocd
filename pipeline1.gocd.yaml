@@ -1,0 +1,46 @@
+environments:
+  test:
+    environment_variables:
+      Name: TEST
+    secure_variables:
+      MySecret: "s&Du#@$xsSa"
+    pipelines:
+      - pipeline1
+  dev:
+    environment_variables:
+      Name: DEV
+    secure_variables:
+      MySecret: "s&Du#@$xsSa"
+    pipelines:
+      - pipeline2
+pipelines:
+  pipeline1:
+    group: test-group
+    display_order: 1
+    materials:
+      mygit:
+        git: https://github.com/stshivam/learn-gocd.git
+        branch: master
+    stages: # list of stages in order
+      - stage1:
+          clean_workspace: true
+          jobs:
+            job1:
+              resources:
+               - linux
+               - jdk11
+              artifacts:
+               - build:
+                   source: .
+                   destination: output
+               - test:
+                   source: .
+                   destination: test-output/
+              tabs:
+                report: test-output/sample.txt
+              tasks:
+               - exec:
+                   command: bash
+                   arguments:
+                    - -c
+                    - echo $Name
