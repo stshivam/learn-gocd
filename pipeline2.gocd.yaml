@@ -35,6 +35,7 @@ pipelines:
                    stage: stage1
                    job: job1
                    source: sample.txt
+                   is_file: yes
                - exec:
                    command: bash
                    arguments:
