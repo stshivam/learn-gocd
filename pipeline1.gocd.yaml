@@ -1,14 +1,9 @@
 environments:
-  test:
-    environment_variables:
-      Name: TEST
-    pipelines:
-      - pipeline1
   dev:
     environment_variables:
       Name: DEV
     pipelines:
-      - pipeline2
+      - pipeline1
 pipelines:
   pipeline1:
     group: test-group
