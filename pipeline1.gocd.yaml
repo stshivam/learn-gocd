@@ -6,7 +6,7 @@ environments:
       - pipeline1
 pipelines:
   pipeline1:
-    group: test-group
+    group: dev-group
     display_order: 1
     materials:
       mygit:
