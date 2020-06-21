@@ -34,7 +34,7 @@ pipelines:
                    pipeline: pipeline1
                    stage: stage1
                    job: job1
-                   source: sample.txt
+                   source: output/sample.txt
                    is_file: yes
                - exec:
                    command: bash
