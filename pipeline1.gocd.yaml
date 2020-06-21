@@ -2,15 +2,11 @@ environments:
   test:
     environment_variables:
       Name: TEST
-    secure_variables:
-      MySecret: "s&Du#@$xsSa"
     pipelines:
       - pipeline1
   dev:
     environment_variables:
       Name: DEV
-    secure_variables:
-      MySecret: "s&Du#@$xsSa"
     pipelines:
       - pipeline2
 pipelines:
