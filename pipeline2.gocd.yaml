@@ -9,9 +9,6 @@ pipelines:
     group: test-group
     display_order: 1
     materials:
-      mygit:
-        git: https://github.com/stshivam/learn-gocd.git
-        branch: master
       my-upstream:
         pipeline: pipeline1
         stage: stage1
@@ -22,7 +19,7 @@ pipelines:
             job1:
               resources:
                - linux
-               - python3
+               - python-3
               artifacts:
                - build:
                    source: result.txt
