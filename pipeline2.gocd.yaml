@@ -1,0 +1,42 @@
+environments:
+  test:
+    environment_variables:
+      Name: TEST
+    pipelines:
+      - pipeline2
+pipelines:
+  pipeline2:
+    group: test-group
+    display_order: 1
+    materials:
+      mygit:
+        git: https://github.com/stshivam/learn-gocd.git
+        branch: master
+    stages: # list of stages in order
+      - stage1:
+          clean_workspace: true
+          jobs:
+            job1:
+              resources:
+               - linux
+               - python3
+              artifacts:
+               - build:
+                   source: result.txt
+                   destination: output
+               - test:
+                   source: result.txt
+                   destination: test-output/
+              tabs:
+                report: test-output/sample.txt
+              tasks:
+               - fetch:
+                   pipeline: pipeline1
+                   stage: stage1
+                   job: job1
+                   source: sample.txt
+               - exec:
+                   command: bash
+                   arguments:
+                    - -c
+                    - cat sample.txt | xargs -I % echo "Hello, %"  
