@@ -22,8 +22,10 @@ pipelines:
                - jdk11
               artifacts:
                - build:
+                   source:
                    destination: output
                - test:
+                   source:
                    destination: test-output/
               tabs:
                 report: test-output/sample.txt
