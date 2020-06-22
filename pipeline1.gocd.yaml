@@ -34,4 +34,4 @@ pipelines:
                    command: bash
                    arguments:
                     - -c
-                    - echo $Name > sample.txt
+                    - echo "$Name Test" > sample.txt
